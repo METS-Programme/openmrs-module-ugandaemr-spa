@@ -9,9 +9,15 @@
  */
 package org.openmrs.module.ugandaemrspa;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openmrs.api.context.Context;
 import org.openmrs.module.BaseModuleActivator;
+import org.openmrs.module.initializer.api.InitializerService;
+import org.openmrs.util.OpenmrsUtil;
+
+import java.io.File;
 
 /**
  * This class contains the logic that is run every time this module is either started or shutdown
@@ -25,6 +31,20 @@ public class UgandaEMRSpaActivator extends BaseModuleActivator {
 	 */
 	public void started() {
 		log.info("Started UgandaEMRSpa");
+		
+		File source = FileUtils.toFile(getClass().getClassLoader().getResource("configuration"));
+		
+		File dest = new File(OpenmrsUtil.getApplicationDataDirectory() + "configuration");
+		try {
+			FileUtils.copyDirectory(source, dest);
+			InitializerService initializerService = Context.getService(InitializerService.class);
+			initializerService.loadUnsafe(false, true);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		
 	}
 	
 	/**

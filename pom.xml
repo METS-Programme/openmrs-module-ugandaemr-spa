@@ -188,5 +188,22 @@
 		<ugandaemrVersion>3.3.5</ugandaemrVersion>
 		<spaVersion>1.0.8</spaVersion>
 		<initializerVersion>2.1.0</initializerVersion>
+		<apacheCommonsioVersion>2.11.0</apacheCommonsioVersion>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${apacheCommonsioVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>initializer</artifactId>
+				<version>${initializerVersion}</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
 </project>
