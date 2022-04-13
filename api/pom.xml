@@ -12,6 +12,28 @@
 	<name>UgandaEMR SPA API</name>
 	<description>API project for UgandaEMRSpa</description>
 
+	<dependencies>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>initializer-api</artifactId>
+			<version>${initializerVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>initializer-api-2.2</artifactId>
+			<version>${initializerVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
 	<build>
 		<resources>
 			<resource>
